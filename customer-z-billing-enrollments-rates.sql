@@ -75,7 +75,7 @@ WHEN is_trial != 'short_trial'
 --identify ebook (course name)                              
  WHEN is_trial != 'short_trial' AND (course_name LIKE '%Instructor Guide%' OR course_name LIKE '%Student Guide%') THEN 'ebook'
 
---extract plan ID from bench_prep_plan_url in COURSE INVENTORY (CompTIA Gsheet), match to plan ID from LICENSES, and use COURSE_INVENTORY.audience --> enrollment_type
+--extract plan ID from bench_prep_plan_url in COURSE INVENTORY (reference Gsheet), match to plan ID from LICENSES, and use COURSE_INVENTORY.audience --> enrollment_type
 WHEN is_trial != 'short_trial' AND SUBSTR(plan_url,35,10) = li_plan_id THEN plan_aud_type
 
 --LTI launches Plan A --> B2B enrollment type  
