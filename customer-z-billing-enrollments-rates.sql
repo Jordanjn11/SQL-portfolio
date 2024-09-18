@@ -102,8 +102,8 @@ WHEN is_trial != 'short_trial'
 
 --identify enrollments where auxiliary_enrollment_data column has any value --> B2C
 WHEN is_trial != 'short_trial'
-  AND NOT is_null_value(AUXILIARY_ENROLLMENT_DATA:audience) THEN 'B2C' --CSM Kevin to explain why we're classifying ANY aux_enroll_data value as B2C
--- query QC: check for unclassified enrollment types (those w/ this billign rate)
+  AND NOT is_null_value(AUXILIARY_ENROLLMENT_DATA:audience) THEN 'B2C' --per CSM, we're classifying ANY aux_enroll_data value as B2C
+-- query QC: check for unclassified enrollment types (those w/ this billing rate)
 ELSE 'Needs Review' END AS enrollment_type
 FROM enrollment_info
 JOIN trial_enrollments
